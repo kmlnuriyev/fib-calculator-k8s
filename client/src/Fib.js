@@ -23,13 +23,13 @@ class Fib extends Component {
         this.setState({ seenIndexes: seenIndexes.data });
     }
 
-    handleSubmit = async (event) => {
+    handleSubmit = async event => {
         event.preventDefault();
 
         await axios.post('/api/values', {
             index: this.state.index
         });
-        this.setState({ index: '' })
+        this.setState({ index: '' });
     };
 
     renderSeenIndexes() {
