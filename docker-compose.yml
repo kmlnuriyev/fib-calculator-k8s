@@ -13,7 +13,12 @@ services:
       context: ./nginx
     ports:
       - '3050:80'
-  server:
+    depends_on:
+      - client
+      - api
+  api:
+    depends_on:
+      - postgres
     build:
       dockerfile: Dockerfile.dev
       context: ./server
